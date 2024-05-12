@@ -42,7 +42,7 @@ const Index = () => {
           ))}
         </Grid>
         <Text fontSize="xl" mt={4}>
-          {winner ? `Winner: ${winner}` : `Next Player: ${xIsNext ? "X" : "O"}`}
+          {winner ? `Winner: ${winner}` : board.every((cell) => cell !== null) ? "Game is a draw" : `Next Player: ${xIsNext ? "X" : "O"}`}
         </Text>
         <Button colorScheme="blue" mt={4} onClick={resetGame}>
           Restart Game
