@@ -3,7 +3,7 @@ import { Box, Button, Container, Grid, GridItem, Text, VStack } from "@chakra-ui
 import { FaTimes, FaRegCircle } from "react-icons/fa";
 
 const Index = () => {
-  const [board, setBoard] = useState(Array(9).fill(null));
+  const [board, setBoard] = useState(Array(16).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const winner = calculateWinner(board);
 
@@ -32,7 +32,7 @@ const Index = () => {
         <Text fontSize="2xl" mb={4}>
           Tic-Tac-Toe Game
         </Text>
-        <Grid templateColumns="repeat(3, 1fr)" gap={2}>
+        <Grid templateColumns="repeat(4, 1fr)" gap={2}>
           {board.map((cell, index) => (
             <GridItem w="40px" h="40px" key={index} onClick={() => handleClick(index)}>
               <Button w="100%" h="100%" p={0}>
@@ -54,14 +54,16 @@ const Index = () => {
 
 function calculateWinner(squares) {
   const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
+    [0, 4, 8, 12],
+    [1, 5, 9, 13],
+    [2, 6, 10, 14],
+    [3, 7, 11, 15],
+    [0, 5, 10, 15],
+    [3, 6, 9, 12],
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
